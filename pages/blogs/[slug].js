@@ -9,22 +9,28 @@ import {db, auth, provider} from '../../firebase'
 
 const PostItem = () => {
     const [author, setAuthor] = useState([])
+    const [place, setPlace] = useState(null)
 
     const {posts} = useContext(ContentContext)
     const { query } = useRouter();
-    const { slug } = query;
-
+    // const { slug } = query;
     // const post = posts.find((post) => post.id === query.slug);
+    
+    const slug = query.slug
+
+   
+    //   console.log(slug)
+
+
 
     useEffect(() => {
         const getBooks = async () => {
         const querySnapshot = await getDocs(collection(db, 'posts'))
-        querySnapshot.docs.map(doc => doc.id === query.slug && setAuthor(doc.data()))
+        querySnapshot.docs.map(doc => doc.id === slug && setAuthor(doc.data()))
     }
     getBooks()
-}, [])
+}, [posts])
 
-    console.log(author)
     const {title, description, date} = author
 
 

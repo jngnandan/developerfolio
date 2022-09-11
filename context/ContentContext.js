@@ -12,27 +12,50 @@ const ContentContext = createContext()
 
 const ContentProvider = ({ children }) => {
     const [posts, setPosts] = useState([])
+    const [blogs, setBlogs] = useState([])
 
+    // useEffect(() => {
+    //    const getPosts = async () => {
+    //     const querySnapshot = await getDocs(collection(db, "posts"));
+    //     setPosts(querySnapshot.docs.map(doc => {
+    //         return{
+    //             id: doc.id,
+    //             body: {
+    //             //   ...doc.data()  
+    //             title: doc.data().title,
+    //             description: doc.data().description,
+    //             date: doc.data().date,
+    //             }}}   
+    //         ))
+    // } 
+    //    getPosts()
+    // }, [])
+
+    
     useEffect(() => {
-       const getPosts = async () => {
+     const getStaticProps = async () => {
         const querySnapshot = await getDocs(collection(db, "posts"));
-        setPosts(querySnapshot.docs.map(doc => {
+        setBlogs(querySnapshot.docs.map(doc => {
             return{
-                id: doc.id,
+                props: {
+                     id: doc.id,
                 body: {
                 //   ...doc.data()  
                 title: doc.data().title,
                 description: doc.data().description,
                 date: doc.data().date,
-                }}}   
+                }
+               
+                }}}
             ))
-    } 
-       getPosts()
-    }, [])
+    }
+    getStaticProps()
+}, [])
+        
     
 
     return(
-        <ContentContext.Provider value={{posts}}>
+        <ContentContext.Provider value={{posts, blogs}}>
             {children}
         </ContentContext.Provider>
     )
