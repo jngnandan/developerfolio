@@ -17,8 +17,7 @@ const PostItem = () => {
         <Layout>
             <div className="my-4">
                 <h1 className="font-bold my-3 text-3xl pt-6">{title}</h1>
-                <br />
-                <p className="text-md">{description}</p>
+                <p className="text-md border-t">{description}</p>
             </div>
         </Layout>
 
