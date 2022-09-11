@@ -5,9 +5,9 @@ import React, { Component, useContext, useEffect } from 'react'
 const Header = () => {
 
   return (
-    <div className='flex flex-row justify-between items-center h-14 shadow bg-gray-900'>
-        <div className='font-bold pl-5'>
-          <Link href="/">GN</Link>
+    <div className='flex flex-row justify-between items-center h-14 shadow bg-neutral-900'>
+        <div className='font-bold pl-5 text-red-500'>
+          <Link href="/">Nandan</Link>
         </div>
 
         <nav>

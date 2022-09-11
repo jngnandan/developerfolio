@@ -6,7 +6,7 @@ import Footer from './Footer'
 
 export default function Layout({children, title, description, keywords, content, author}) {
   return (
-    <div>
+    <div className='bg-neutral-800'>
         <Head>
             <title>{title}</title>
             <meta name="description" content={description} />
