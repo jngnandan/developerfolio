@@ -20,7 +20,10 @@ const ContentProvider = ({ children }) => {
             return{
                 id: doc.id,
                 body: {
-                  ...doc.data()  
+                //   ...doc.data()  
+                title: doc.data().title,
+                description: doc.data().description,
+                date: doc.data().date,
                 }}}   
             ))
     } 
