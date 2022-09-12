@@ -43,7 +43,6 @@ const ContentProvider = ({ children }) => {
                 //   ...doc.data()  
                 title: doc.data().title,
                 description: doc.data().description,
-                date: doc.data().date,
                 }
                
                 }}}
